@@ -9,6 +9,11 @@ clock = pygame.time.Clock()
 def main():
 	dt = 0
 
+	updatable = pygame.sprite.Group()
+	drawable = pygame.sprite.Group()
+
+	Player.containers = (updatable, drawable)
+
 	print(f"Starting Asteroids with pygame version: {pygame.version.ver}")
 	print(f"""Screen width: {SCREEN_WIDTH}
 Screen height: {SCREEN_HEIGHT}""")
@@ -24,8 +29,10 @@ Screen height: {SCREEN_HEIGHT}""")
 				return
 		screen.fill("black")
 
-		player.update(dt)
-		player.draw(screen)
+		for object in updatable:
+			object.update(dt)
+		for object in drawable:
+			object.draw(screen)
 
 		# be sure to run this last - exception for dt
 		pygame.display.flip()
