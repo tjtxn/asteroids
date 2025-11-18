@@ -5,9 +5,10 @@ from player import Player
 
 pygame.init()
 clock = pygame.time.Clock()
-dt = 0
 
 def main():
+	dt = 0
+
 	print(f"Starting Asteroids with pygame version: {pygame.version.ver}")
 	print(f"""Screen width: {SCREEN_WIDTH}
 Screen height: {SCREEN_HEIGHT}""")
@@ -23,6 +24,7 @@ Screen height: {SCREEN_HEIGHT}""")
 				return
 		screen.fill("black")
 
+		player.update(dt)
 		player.draw(screen)
 
 		# be sure to run this last - exception for dt
