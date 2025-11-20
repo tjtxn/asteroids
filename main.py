@@ -48,6 +48,11 @@ Screen height: {SCREEN_HEIGHT}""")
 				log_event("player_hit")
 				print("Game over!")
 				sys.exit()
+			for shot in shots:
+				if object.collides_with(shot) == True:
+					log_event("asteroid_shot")
+					object.kill()
+					shot.kill()
 		for object in drawable:
 			object.draw(screen)
 
