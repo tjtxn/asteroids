@@ -51,7 +51,7 @@ Screen height: {SCREEN_HEIGHT}""")
 			for shot in shots:
 				if object.collides_with(shot) == True:
 					log_event("asteroid_shot")
-					object.kill()
+					object.split()
 					shot.kill()
 		for object in drawable:
 			object.draw(screen)
